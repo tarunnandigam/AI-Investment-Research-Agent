@@ -76,7 +76,8 @@ export default function App() {
     setStatus(STATUS.LOADING);
 
     try {
-      const response = await fetch('/api/research', {
+      const baseUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${baseUrl}/api/research`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ companyName }),
